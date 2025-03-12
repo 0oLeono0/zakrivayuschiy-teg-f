@@ -14,7 +14,7 @@
 }
 
 .accent {
-  font-family: var(--font-accent), sans-serif;
+  font-family: var(--font-accent), fantasy;
 }
 
 /* Шапка */
@@ -67,7 +67,9 @@
 }
 
 .card__img {
-  width: 100%;
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
   border-block: 2px solid var(--color-accent);
 }
 
@@ -88,8 +90,7 @@
 /* Кнопки */
 
 .card__like-button {
-  padding: 11px 35px;
-  width: 155px;
+  padding: 10px 35px;
 }
 
 .btn {
@@ -114,7 +115,7 @@
 
 .save {
   text-align: center;
-  padding: 15px 20px;
+  padding: 15px 22px;
   display: flex;
   gap: 6px;
   align-items: center;
@@ -130,13 +131,15 @@
 }
 
 .save__icon {
+  width: 21px;
+  height: 21px;
   fill: var(--text-mix-color);
 }
 
 .like__block {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   justify-content: end;
 }
 
@@ -146,7 +149,7 @@
   z-index: 1;
   position: absolute;
   top: 25px;
-  right: 25px;
+  right: clamp(13px, 3.467vw, 25px);
   mix-blend-mode: hard-light;
   font-size: 14px;
   opacity: .5;
@@ -210,6 +213,12 @@
 
   .save {
     flex-direction: column;
+    gap: 9px;
+  }
+
+  .save__icon {
+    width: 28px;
+    height: 28px;
   }
 }
 
@@ -281,15 +290,15 @@
 }
 
 .core {
-  transition: fill .3s ease-in, fill .3s ease-out .03s;
+  transition: fill .3s linear, fill .3s linear .03s;
 }
 
 .main-body {
-  transition: fill .3s ease-in .05s, fill .3s ease-out;
+  transition: fill .3s linear .05s, fill .3s linear;
 }
 
 .contour {
-  transition: fill .3s ease-in .06s, fill .1s ease-out;
+  transition: fill .3s linear .06s, fill .1s linear;
 }
 
 .heart {
@@ -314,29 +323,9 @@
 
 
 .like-icon.is-liked .heart {
-  animation: heart-scale .3s ease-in .1s;
+  animation: heart-scale .3s linear .1s;
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparkles .3s ease-in .3s;
-}
-
-@keyframes heart-scale {
-  from {
-    scale: 1;
-  }
-
-  to {
-    scale: 1.25;
-  }
-}
-
-@keyframes sparkles {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+  animation: sparkles .3s linear .3s;
 }
