@@ -85,12 +85,14 @@
 
 .card__description-text {
   margin-block-end: 25px;
+  line-height: 21px;
 }
 
 /* Кнопки */
 
 .card__like-button {
-  padding: 10px 35px;
+  padding-block: 10px;
+  inline-size: 130px;
 }
 
 .btn {
@@ -171,15 +173,15 @@
 /* Модалка */
 
 .modal {
-  padding: 30px;
+  padding: 28px;
   border: 2px solid black;
-  max-width: 357px;
+  max-inline-size: clamp(341px, 90.933vw, 353px);
 }
 
 .modal[open] {
   display: grid;
-  grid-template-columns: 15% 70%;
-  gap: 30px;
+  grid-column-gap: 20px;
+  grid-row-gap: 30px;
   align-items: center;
 }
 
@@ -219,6 +221,10 @@
   .save__icon {
     width: 28px;
     height: 28px;
+  }
+
+  .modal {
+    padding: 28px 40px;
   }
 }
 
@@ -290,19 +296,31 @@
 }
 
 .core {
-  transition: fill .3s linear, fill .3s linear .03s;
+  transition: fill .3s linear .03s;
 }
 
-.main-body {
-  transition: fill .3s linear .05s, fill .3s linear;
-}
-
+.main-body,
 .contour {
-  transition: fill .3s linear .06s, fill .1s linear;
+  transition: fill .3s linear;
 }
 
 .heart {
   transform-origin: center;
+}
+
+.card__icon-button:hover .core,
+.card__icon-button:active .core,
+.like-icon.is-liked .core {
+  transition-delay: 0s;
+}
+.card__icon-button:hover .main-body,
+.card__icon-button:active .main-body,
+.like-icon.is-liked .main-body {
+  transition-delay: .05s;
+}
+
+.like-icon.is-liked .contour {
+  transition-delay: .06s;
 }
 
 .card__icon-button:hover .core,
